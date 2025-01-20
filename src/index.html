@@ -13,17 +13,40 @@
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
+    <h1>🔹 Generador de Dominios 🔹</h1>
+    <button onclick="mostrarDominio()">Generar Dominio</button>
+    <p id="dominio-generado">Presiona el botón para generar un dominio</p>
+
+    <script>
+      // Listas de palabras
+      const pronombres = ["mi", "tu", "su", "nuestro"];
+      const adjetivos = ["gran", "mejor", "nuevo", "genial", "increible"];
+      const sustantivos = ["sitio", "blog", "negocio", "proyecto", "empresa"];
+      const extensiones = [".com", ".net", ".org", ".io"];
+
+      // Función para generar un dominio aleatorio
+      function generarDominioAleatorio() {
+        const pronombre =
+          pronombres[Math.floor(Math.random() * pronombres.length)];
+        const adjetivo =
+          adjetivos[Math.floor(Math.random() * adjetivos.length)];
+        const sustantivo =
+          sustantivos[Math.floor(Math.random() * sustantivos.length)];
+        const extension =
+          extensiones[Math.floor(Math.random() * extensiones.length)];
+
+        return `${pronombre}${adjetivo}${sustantivo}${extension}`;
+      }
+
+      // Función para mostrar un dominio en la página
+      function mostrarDominio() {
+        const dominioGenerado = generarDominioAleatorio();
+        document.getElementById(
+          "dominio-generado"
+        ).textContent = dominioGenerado;
+      }
+    </script>
+
+    <script src="app.js"></script>
   </body>
 </html>
